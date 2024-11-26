@@ -30,8 +30,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Home/Zamow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxaYW1vdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Produkts/Create.cshtml]
@@ -62,10 +62,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrdHlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Produkty/Produkty.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrdHlcUHJvZHVrdHkuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Produkty/WedlugKategorii.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrdHlcV2VkbHVnS2F0ZWdvcmlpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Uzytkownicy/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXp5dGtvd25pY3lcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Zamowienia/Create.cshtml]
@@ -96,6 +96,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Zamowienia/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFtb3dpZW5pYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Zamowienia/Koszyk.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFtb3dpZW5pYVxLb3N6eWsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Zamowienia/Potwierdzenie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWmFtb3dpZW5pYVxQb3R3aWVyZHplbmllLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kstyp/source/repos/Sklep/Sklep/Views/Zamowienia/Zamowienia.cshtml]

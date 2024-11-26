@@ -282,3 +282,4 @@ C:\Users\kstyp\source\repos\Sklep\Sklep\obj\Debug\net8.0\refint\Sklep.dll
 C:\Users\kstyp\source\repos\Sklep\Sklep\obj\Debug\net8.0\Sklep.pdb
 C:\Users\kstyp\source\repos\Sklep\Sklep\obj\Debug\net8.0\Sklep.genruntimeconfig.cache
 C:\Users\kstyp\source\repos\Sklep\Sklep\obj\Debug\net8.0\ref\Sklep.dll
+C:\Users\kstyp\source\repos\Sklep\Sklep\obj\Debug\net8.0\Sklep.sourcelink.json
