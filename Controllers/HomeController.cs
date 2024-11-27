@@ -45,29 +45,35 @@ namespace Sklep.Controllers
                 _context.Uzytkownicy.Add(uzytkownik);
                 await _context.SaveChangesAsync();
 
-                // Stwórz zamówienie dla u¿ytkownika
+                // Stwórz zamówienie
                 var zamowienie = new Zamowienie
                 {
                     UzytkownikId = uzytkownik.Id,
-                    DataZamowienia = DateTime.Now,
-                    Produkty = new List<Produkt>()
+                    DataZamowienia = DateTime.Now
                 };
 
-                // Powi¹¿ wybrane produkty z zamówieniem
-                var produkty = await _context.Produkty.Where(p => wybraneProdukty.Contains(p.Id)).ToListAsync();
-                zamowienie.Produkty.AddRange(produkty);
-
-                // Zapisz zamówienie
                 _context.Zamowienia.Add(zamowienie);
+                await _context.SaveChangesAsync();
+
+                // Zapisz produkty do zamówienia w tabeli ³¹cz¹cej
+                foreach (var produktId in wybraneProdukty)
+                {
+                    _context.ZamowienieProdukty.Add(new ZamowienieProdukt
+                    {
+                        ZamowienieId = zamowienie.Id,
+                        ProduktId = produktId
+                    });
+                }
+
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
 
-            // W przypadku b³êdu walidacji, ponownie za³aduj listê produktów
             ViewBag.Produkty = await _context.Produkty.ToListAsync();
             return View(uzytkownik);
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sklep.Data;
 
@@ -11,9 +12,11 @@ using Sklep.Data;
 namespace Sklep.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241126214348_DodanieZamowienieProdukt")]
+    partial class DodanieZamowienieProdukt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,11 +50,16 @@ namespace Sklep.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int?>("ZamowienieId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Zdjecie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ZamowienieId");
 
                     b.ToTable("Produkty");
                 });
@@ -106,19 +114,11 @@ namespace Sklep.Migrations
                     b.ToTable("Zamowienia");
                 });
 
-            modelBuilder.Entity("Sklep.Models.ZamowienieProdukt", b =>
+            modelBuilder.Entity("Sklep.Models.Produkt", b =>
                 {
-                    b.Property<int>("ZamowienieId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProduktId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ZamowienieId", "ProduktId");
-
-                    b.HasIndex("ProduktId");
-
-                    b.ToTable("ZamowienieProdukty");
+                    b.HasOne("Sklep.Models.Zamowienie", null)
+                        .WithMany("Produkty")
+                        .HasForeignKey("ZamowienieId");
                 });
 
             modelBuilder.Entity("Sklep.Models.Zamowienie", b =>
@@ -132,33 +132,9 @@ namespace Sklep.Migrations
                     b.Navigation("Uzytkownik");
                 });
 
-            modelBuilder.Entity("Sklep.Models.ZamowienieProdukt", b =>
-                {
-                    b.HasOne("Sklep.Models.Produkt", "Produkt")
-                        .WithMany("ZamowienieProdukty")
-                        .HasForeignKey("ProduktId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Sklep.Models.Zamowienie", "Zamowienie")
-                        .WithMany("ZamowienieProdukty")
-                        .HasForeignKey("ZamowienieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Produkt");
-
-                    b.Navigation("Zamowienie");
-                });
-
-            modelBuilder.Entity("Sklep.Models.Produkt", b =>
-                {
-                    b.Navigation("ZamowienieProdukty");
-                });
-
             modelBuilder.Entity("Sklep.Models.Zamowienie", b =>
                 {
-                    b.Navigation("ZamowienieProdukty");
+                    b.Navigation("Produkty");
                 });
 #pragma warning restore 612, 618
         }

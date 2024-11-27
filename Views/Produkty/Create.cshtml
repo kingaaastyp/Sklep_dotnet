@@ -6,7 +6,8 @@
 
 <h1>Dodaj Produkt</h1>
 
-<form asp-action="Create">
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Nazwa" class="control-label"></label>
         <input asp-for="Nazwa" class="form-control" />
@@ -38,5 +39,6 @@
 </form>
 
 <div>
-    <a asp-action="Index">Powrót do listy</a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Powrót do listy</a>
 </div>
+

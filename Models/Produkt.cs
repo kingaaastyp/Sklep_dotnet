@@ -16,6 +16,8 @@ namespace Sklep.Models
         [Range(0.01, double.MaxValue, ErrorMessage = "Cena musi być większa niż 0")]
 
         public decimal Cena { get; set; }
+        public List<ZamowienieProdukt> ZamowienieProdukty { get; set; }
+
     }
 
 }

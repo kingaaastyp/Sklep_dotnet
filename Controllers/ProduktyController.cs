@@ -81,14 +81,27 @@ namespace Sklep.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nazwa,Opis,Zdjecie,Kategoria,Cena")] Produkt produkt)
+        public async Task<IActionResult> Create([Bind("Nazwa,Opis,Zdjecie,Kategoria,Cena")] Produkt produkt)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // Sprawdza walidację modelu
             {
-                _context.Add(produkt);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home"); //przekieruj do index w homecontrolller
+                try
+                {
+                    // Dodanie produktu do bazy danych
+                    _context.Add(produkt);
+                    await _context.SaveChangesAsync();
+
+                    // Przekierowanie do listy produktów
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception ex)
+                {
+                    // Obsługa wyjątków (np. problemy z bazą danych)
+                    ModelState.AddModelError("", "Wystąpił błąd podczas dodawania produktu: " + ex.Message);
+                }
             }
+
+            // Jeśli model jest nieprawidłowy, zwróć formularz z błędami
             return View(produkt);
         }
 
@@ -173,8 +186,8 @@ namespace Sklep.Controllers
                 await _context.SaveChangesAsync();
             }
 
-          //  await _context.SaveChangesAsync();
-            return RedirectToAction("Index","Home");
+            //  await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
 
 

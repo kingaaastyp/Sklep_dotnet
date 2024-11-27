@@ -50,7 +50,7 @@ namespace Sklep.Controllers
         // GET: Zamowienia/Create
         public IActionResult Create()
         {
-           // ViewData["UzytkownikId"] = new SelectList(_context.Uzytkownicy, "Id", "Id");
+            // ViewData["UzytkownikId"] = new SelectList(_context.Uzytkownicy, "Id", "Id");
             return View();
         }
 
